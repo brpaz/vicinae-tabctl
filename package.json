@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
+  "name": "tabctl",
+  "title": "Tab Control",
+  "description": "Manage browser tabs",
+  "categories": [
+    "Developer Tools",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "author": "brpaz",
+  "contributors": [],
+  "pastContributors": [],
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "list",
+      "title": "Browser Tabs",
+      "description": "List all open browser tabs",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "tabctlExecPath",
+      "title": "Tab Control Executable",
+      "required": false,
+      "description": "The path to the tabctl executable",
+      "type": "textfield",
+      "default": "/usr/local/bin/tabctl"
+    }
+  ],
+  "scripts": {
+    "build": "vici build",
+    "dev": "vici develop",
+    "lint": "biome check src/ && vici lint",
+    "format": "biome format --write .",
+    "format-check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "check": "biome check --write ."
+  },
+  "dependencies": {
+    "@vicinae/api": "^0.16.1",
+    "execa": "^9.6.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.10",
+    "@types/react": "^19.0.10",
+    "typescript": "^5.9.2"
+  }
+}
