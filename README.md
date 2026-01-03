@@ -4,7 +4,7 @@
 
 ## Preview
 
-![Screenshot](./assets/preview.png|)
+![Screenshot](./assets/preview.png)
 
 ## Features
 
