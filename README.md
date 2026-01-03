@@ -4,17 +4,36 @@
 
 ## Preview
 
-![Screenshot](./assets/preview.png)
+![Screenshot](./assets/preview.png|)
 
 ## Features
 
-- List and Open open browser tabs in Chrome, Brave or Firefox.
+- List currently open tabs in Chrome, Brave or Firefox.
+- Activitate a tab (focus)
+- Close a tab.
 
-## Usage
+## Getting Started
 
 ## Pre Requsiites
 
-Before using this extension, please ensure [Tabctl](https://github.com/slastra/tabctl) is correctly installed and configured. You should be able to run `tabctl list` from the terminal and see the list of open tabs.
+- [NodeJS](https://nodejs.org/)
+- [Vicinae](https://github.com/vicinaehq/vicinae)
+- [Tabctl](https://github.com/slastra/tabctl)
+
+Before using this extension, please ensure Tabctl is correctly installed and configured. You should be able to run `tabctl list` from the terminal and see the list of open tabs.
+
+## Install
+
+```
+git clone https://github.com/slastra/vicinae-tabctl.git
+cd vicinae-tabctl
+npm install
+npm run build
+```
+
+The extension should be installed in Vicinae's extension directory.
+
+## Usage
 
 ### Extension Preferences
 
@@ -44,3 +63,5 @@ npm run build
 <a href="https://www.flaticon.com/free-icons/tabs" title="tabs icons">Tabs icons created by HideMaru - Flaticon</a>
 
 <a href="https://www.flaticon.com/free-icons/mozilla" title="mozilla icons">Mozilla icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/chromium" title="chromium icons">Chromium icons created by Freepik - Flaticon</a>
