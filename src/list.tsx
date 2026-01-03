@@ -52,7 +52,7 @@ export default function Command() {
   }, []);
 
   return (
-    <List navigationTitle="Opened Tabs" isLoading={isLoading}>
+    <List isLoading={isLoading}>
       {tabs.length === 0 ? (
         !isLoading ? (
           <List.EmptyView title="No Tabs found" />
