@@ -1,4 +1,4 @@
-import { execa } from "execa";
+import { execa } from 'execa';
 
 export interface Tab {
   id: string;
@@ -16,7 +16,7 @@ export interface Tab {
  * @returns
  */
 export const getTabs = async (tabCtlPath: string): Promise<Tab[]> => {
-  const result = await execa(tabCtlPath, ["list", "--format", "json"]);
+  const result = await execa(tabCtlPath, ['list', '--format', 'json']);
   return JSON.parse(result.stdout);
 };
 
@@ -26,7 +26,7 @@ export const getTabs = async (tabCtlPath: string): Promise<Tab[]> => {
  * @param tabId The id of the tab to activate
  */
 export const activateTab = async (tabCtlPath: string, tabId: string) => {
-  await execa(tabCtlPath, ["activate", tabId]);
+  await execa(tabCtlPath, ['activate', tabId]);
 };
 
 /**
@@ -35,5 +35,5 @@ export const activateTab = async (tabCtlPath: string, tabId: string) => {
  * @param tabId The id of the tab to close
  */
 export const closeTab = async (tabCtlPath: string, tabId: string) => {
-  await execa(tabCtlPath, ["close", tabId]);
+  await execa(tabCtlPath, ['close', tabId]);
 };
