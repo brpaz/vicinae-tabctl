@@ -7,12 +7,12 @@ import {
   List,
   showToast,
   Toast,
-} from '@vicinae/api';
-import { useEffect, useState } from 'react';
-import { activateTab, closeTab, getTabs, type Tab } from './tabctl';
+} from "@vicinae/api";
+import { useEffect, useState } from "react";
+import { activateTab, closeTab, getTabs, type Tab } from "./tabctl";
 
-const IconFirefox = '../assets/icon-browser-firefox.png';
-const IconChrome = '../assets/icon-browser-chrome.png';
+const IconFirefox = "../assets/icon-browser-firefox.png";
+const IconChrome = "../assets/icon-browser-chrome.png";
 
 const preferences = getPreferenceValues<{
   readonly tabctlExecPath: string;
@@ -20,9 +20,9 @@ const preferences = getPreferenceValues<{
 
 const resolveIcon = (tabId: string) => {
   switch (tabId.charAt(0)) {
-    case 'c':
+    case "c":
       return IconChrome;
-    case 'f':
+    case "f":
       return IconFirefox;
     default:
       return Icon.Globe;
@@ -42,7 +42,7 @@ export default function Command() {
       } catch {
         await showToast({
           style: Toast.Style.Failure,
-          title: 'Failed to load tabs',
+          title: "Failed to load tabs",
         });
         setTabs([]);
       } finally {
@@ -68,8 +68,8 @@ export default function Command() {
               <ActionPanel>
                 <Action
                   title="Open Tab"
-                  icon={Icon.Globe}
-                  shortcut={{ modifiers: ['ctrl'], key: 'o' }}
+                  icon={Icon.Link}
+                  shortcut={{ modifiers: ["ctrl"], key: "o" }}
                   onAction={async () => {
                     await activateTab(preferences.tabctlExecPath, tab.id);
                     closeMainWindow();
@@ -78,15 +78,16 @@ export default function Command() {
                 <Action
                   title="Close Tab"
                   icon={Icon.Trash}
-                  shortcut={{ modifiers: ['ctrl'], key: 'x' }}
+                  shortcut={{ modifiers: ["ctrl"], key: "x" }}
                   onAction={async () => {
                     await closeTab(preferences.tabctlExecPath, tab.id);
+                    closeMainWindow();
                   }}
                 />
                 <Action.CopyToClipboard
                   title="Copy URL to Clipboard"
                   icon={Icon.Clipboard}
-                  shortcut={{ modifiers: ['ctrl'], key: 'c' }}
+                  shortcut={{ modifiers: ["ctrl"], key: "c" }}
                   content={tab.url}
                 />
               </ActionPanel>
