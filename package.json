@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
   "name": "tabctl",
-  "title": "Tab Control",
-  "description": "Manage browser tabs",
+  "title": "Browser Tabs",
+  "description": "Manage browser tabs using Tabctl",
   "categories": [
     "Developer Tools",
     "Productivity"
@@ -15,7 +15,7 @@
   "commands": [
     {
       "name": "list",
-      "title": "Browser Tabs",
+      "title": "All Tabs",
       "description": "List all open browser tabs",
       "mode": "view"
     }
