@@ -36,5 +36,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v5
         with:
-          name: vicinae-code-snippets
-          path: /home/runner/.local/share/vicinae/extensions/code-snippets
+          name: vicinae-tabctl
+          path: /home/runner/.local/share/vicinae/extensions/tabctl
