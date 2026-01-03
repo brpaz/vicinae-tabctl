@@ -35,7 +35,7 @@
     "dev": "vici develop",
     "lint": "biome check src/ && vici lint",
     "format": "biome format --write .",
-    "format-check": "biome format .",
+    "format:check": "biome format .",
     "typecheck": "tsc --noEmit",
     "check": "biome check --write ."
   },
