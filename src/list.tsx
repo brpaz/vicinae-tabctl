@@ -25,7 +25,7 @@ const resolveIcon = (tabId: string) => {
     case 'f':
       return IconFirefox;
     default:
-      return Icon.Globe;
+      return Icon.Globe01;
   }
 };
 
@@ -86,7 +86,7 @@ export default function Command() {
                 />
                 <Action.CopyToClipboard
                   title="Copy URL to Clipboard"
-                  icon={Icon.Clipboard}
+                  icon={Icon.CopyClipboard}
                   shortcut={{ modifiers: ['ctrl'], key: 'c' }}
                   content={tab.url}
                 />
