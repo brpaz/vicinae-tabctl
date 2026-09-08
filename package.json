@@ -38,15 +38,15 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "typecheck": "tsc --noEmit",
-    "check": "biome check"
+    "check": "biome check --write ."
   },
   "dependencies": {
     "@vicinae/api": "^0.20.13",
     "execa": "^9.6.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.12",
+    "@biomejs/biome": "2.5.12",
     "@types/react": "^19.2.14",
-    "typescript": "^6.0.3"
+    "typescript": "5.9.3"
   }
 }
