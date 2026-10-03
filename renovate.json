@@ -3,7 +3,8 @@
   "extends": [
     "config:best-practices",
     ":automergeMinor",
-    ":prConcurrentLimit10"
+    ":prConcurrentLimit10",
+    "workarounds:typesNodeVersioning"
   ],
   "labels": ["dependencies"],
   "reviewers": ["brpaz"],
@@ -18,6 +19,14 @@
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "github actions"
+    },
+    {
+      "matchPackageNames": ["node", "@types/node"],
+      "groupName": "node"
+    },
+    {
+      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+      "groupName": "react"
     }
   ]
 }
