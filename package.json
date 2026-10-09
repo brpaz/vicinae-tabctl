@@ -28,6 +28,15 @@
       "description": "The path to the tabctl executable",
       "type": "textfield",
       "default": "/usr/local/bin/tabctl"
+    },
+    {
+      "name": "focusBrowser",
+      "title": "Focus Browser",
+      "label": "Focus Browser",
+      "description": "Bring the browser window to the front when activating a tab",
+      "type": "checkbox",
+      "default": true,
+      "required": false
     }
   ],
   "scripts": {

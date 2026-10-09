@@ -16,6 +16,7 @@ const IconChrome = '../assets/icon-browser-chrome.png';
 
 const preferences = getPreferenceValues<{
   readonly tabctlExecPath: string;
+  readonly focusBrowser?: boolean;
 }>();
 
 const resolveIcon = (tabId: string) => {
@@ -71,7 +72,9 @@ export default function Command() {
                   icon={Icon.Link}
                   shortcut={{ modifiers: ['ctrl'], key: 'o' }}
                   onAction={async () => {
-                    await activateTab(preferences.tabctlExecPath, tab.id);
+                    await activateTab(preferences.tabctlExecPath, tab.id, {
+                      focused: preferences.focusBrowser,
+                    });
                     closeMainWindow();
                   }}
                 />
