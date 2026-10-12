@@ -41,7 +41,7 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@vicinae/api": "^0.20.13",
+    "@vicinae/api": "^0.29.0",
     "execa": "^9.6.1"
   },
   "devDependencies": {
