@@ -25,8 +25,16 @@ export const getTabs = async (tabCtlPath: string): Promise<Tab[]> => {
  * @param tabCtlPath The executable path for tabctl
  * @param tabId The id of the tab to activate
  */
-export const activateTab = async (tabCtlPath: string, tabId: string) => {
-  await execa(tabCtlPath, ['activate', tabId]);
+export const activateTab = async (
+  tabCtlPath: string,
+  tabId: string,
+  { focused = false }: { focused?: boolean } = {}
+) => {
+  await execa(tabCtlPath, [
+    'activate',
+    tabId,
+    ...(focused ? ['--focused'] : []),
+  ]);
 };
 
 /**
