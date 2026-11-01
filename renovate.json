@@ -4,21 +4,27 @@
     "config:best-practices",
     ":automergeMinor",
     ":prConcurrentLimit10",
-    "workarounds:typesNodeVersioning"
+    "workarounds:typesNodeVersioning",
+    ":automergeDigest"
   ],
   "labels": ["dependencies"],
-  "reviewers": ["brpaz"],
   "minimumReleaseAge": "3 days",
   "vulnerabilityAlerts": {
     "enabled": true,
-    "labels": ["security"]
+    "labels": ["security"],
+    "reviewers": ["brpaz"]
   },
   "osvVulnerabilityAlerts": true,
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "github actions"
+      "description": "One weekly PR for all non-major updates; automerges when CI is green",
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+      "groupName": "non-major dependencies"
+    },
+    {
+      "description": "Majors need a human",
+      "matchUpdateTypes": ["major"],
+      "reviewers": ["brpaz"]
     },
     {
       "matchPackageNames": ["node", "@types/node"],
@@ -33,5 +39,6 @@
       ],
       "groupName": "react"
     }
-  ]
+  ],
+  "schedule": ["before 6am on monday"]
 }
