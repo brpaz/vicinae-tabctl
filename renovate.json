@@ -1,12 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    ":automergeMinor",
-    ":prConcurrentLimit10",
-    "workarounds:typesNodeVersioning",
-    ":automergeDigest"
-  ],
+  "extends": ["config:best-practices", "workarounds:typesNodeVersioning"],
   "labels": ["dependencies"],
   "minimumReleaseAge": "3 days",
   "vulnerabilityAlerts": {
@@ -17,13 +11,35 @@
   "osvVulnerabilityAlerts": true,
   "packageRules": [
     {
-      "description": "One weekly PR for all non-major updates; automerges when CI is green",
+      "description": "GitHub Actions: pinned updates grouped and automerged on green CI",
+      "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
-      "groupName": "non-major dependencies"
+      "groupName": "github actions",
+      "automerge": true
+    },
+    {
+      "description": "Dev tooling: non-major updates grouped and automerged on green CI",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev dependencies",
+      "automerge": true
+    },
+    {
+      "description": "Container images are reviewed manually and wait a week before a PR can merge",
+      "matchDatasources": ["docker"],
+      "automerge": false,
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "Docker Hub restarts a digest's age whenever a tag is re-pushed, which would keep digest updates pending",
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "minimumReleaseAge": null
     },
     {
       "description": "Majors need a human",
       "matchUpdateTypes": ["major"],
+      "automerge": false,
       "reviewers": ["brpaz"]
     },
     {
@@ -40,5 +56,6 @@
       "groupName": "react"
     }
   ],
-  "schedule": ["before 6am on monday"]
+  "schedule": ["before 6am on monday"],
+  "prConcurrentLimit": 5
 }
