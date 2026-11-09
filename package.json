@@ -45,7 +45,7 @@
     "execa": "^10.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.4",
+    "@biomejs/biome": "2.6.6",
     "@types/react": "19.3.0",
     "typescript": "5.9.3"
   }
